@@ -1,23 +1,27 @@
+/* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
 import './ContentRating.css';
 
 class ContentRating extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-        likes: 0,
-        dislikes: 0,
-      handleLike:() => {
+      likes: 0,
+      dislikes: 0,
+      totalRatings: 0,
+      handleLike: () => {
         this.setState((prevState) => ({
-            likes: prevState.likes + 1
-          }));
+          likes: prevState.likes + 1,
+          totalRatings: prevState.totalRatings + 1
+        }));
       },
-      handleDislike:() => {
+      handleDislike: () => {
         this.setState((prevState) => ({
-            dislikes: prevState.dislikes + 1
-          }));
+          dislikes: prevState.dislikes + 1,
+          totalRatings: prevState.totalRatings + 1
+        }));
       }
-      };
+    };
   }
   render() {
     return (
@@ -33,7 +37,7 @@ class ContentRating extends Component {
             Dislike ({this.state.dislikes})
           </button>
         </div>
-
+        <p>Total Ratings: {this.state.totalRatings}</p>
      </div>
      </>
     );
